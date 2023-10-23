@@ -12,7 +12,7 @@ yq --version >/dev/null || {
 
 tmpDir="/tmp/parsed-formula"
 
-aliasesCountBefore=$((ls -1 Aliases/*.rb 2>/dev/null || true) | wc -l | tr -d ' ')
+aliasesCountBefore=$( (ls -1 Aliases/*.rb 2>/dev/null || true) | wc -l | tr -d ' ')
 echo "Found $aliasesCountBefore aliases beforehand"
 
 # TODO: Use search for symlinks and delete instead of plain rm
@@ -31,5 +31,5 @@ for formulaVersionsFile in "$tmpDir"/*.yaml; do
     # TODO: Set Majors.Minors => $formulaName@$major.$minor.rb
 done
 
-aliasesCountAfter=$((ls -1 Aliases/*.rb 2>/dev/null || true) | wc -l | tr -d ' ')
+aliasesCountAfter=$( (ls -1 Aliases/*.rb 2>/dev/null || true) | wc -l | tr -d ' ')
 echo "Found $aliasesCountAfter aliases afterwards -- a change of $((aliasesCountAfter - aliasesCountBefore))"
