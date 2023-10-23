@@ -25,5 +25,8 @@ jobs:
           git config --global user.name 'QAware Homebrew Bot'
           git config --global user.email 'qaware.homebrew.bot@qaware.de'
           git add Aliases
-          git commit -m "chore: update Aliases"
+          git commit --quiet -m "chore: update Aliases" 2>/dev/null || {
+            echo "Nothing to commit or commit failed, will exit now"
+            exit 0
+          }
           git push
