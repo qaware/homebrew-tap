@@ -10,6 +10,12 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-      - name: debug - list files in Formula
+      - name: Install packages
         run: |
-          ls -lah Formula
+          # https://github.com/marketplace/actions/yq-portable-yaml-processor
+          wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq &&\
+          chmod +x /usr/bin/yq
+      - name: Parse Formula
+        run: .ci-scripts/parse-formulas.sh
+      - name: Generate Alias
+        run: .ci-scripts/generate-aliases.sh
