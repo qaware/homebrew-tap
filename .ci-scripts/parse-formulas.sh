@@ -14,12 +14,11 @@ fi
 mkdir "$tmpDir"
 
 echo "Sort Formula:"
-for formulaFile in $(ls -la1 Formula); do
+for formulaFile in Formula/*.rb; do
+    formulaFile=$(basename "$formulaFile")
+
     if [[ "$formulaFile" =~ ^\. ]]; then
         echo -e "- $formulaFile\t| Skipping file as it starts with a dot"
-        continue
-    elif [[ ! "$formulaFile" =~ .+\.rb$ ]]; then
-        echo -e "- $formulaFile\t| Skipping as files does not end with .rb"
         continue
     fi
     
@@ -51,5 +50,5 @@ done
 echo "Config files wrote to $tmpDir:"
 (
     cd "$tmpDir"
-    ls -la1 *.yaml
+    ls -la1 ./*.yaml
 ) || true

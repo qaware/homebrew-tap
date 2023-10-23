@@ -17,7 +17,7 @@ echo "Delete symlinks in Alaises folder"
 rm -f Alises/*.rb
 
 echo "Generating Aliases from provided config:"
-for formulaVersionsFile in $(ls -l1 "$tmpDir"/*.yaml); do
+for formulaVersionsFile in "$tmpDir"/*.yaml; do
     echo "- $(basename "$formulaVersionsFile") ($(yq 'length' "$formulaVersionsFile") versions found)"
     echo "TODO: Do magic and create the Alias symlink files"
     # ln -s foo bar
