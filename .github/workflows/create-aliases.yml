@@ -1,0 +1,15 @@
+name: Update brew Aliases
+run-name: Updating brew Aliases 🚀
+on:
+  push:
+    branches:
+      - main
+jobs:
+  update-alises:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: debug - list files in Formula
+        run: |
+          ls -lah Formula
