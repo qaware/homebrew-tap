@@ -50,5 +50,5 @@ done
 echo "Config files wrote to $tmpDir:"
 (
     cd "$tmpDir"
-    ls -la1 ./*.yaml
+    ls -a1 ./*.yaml
 ) || true

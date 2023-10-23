@@ -16,7 +16,14 @@ jobs:
           wget -q -O yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
           chmod +x yq
           sudo mv yq /usr/bin/yq
-      - name: Parse Formula
+      - name: Parse Formulas
         run: .ci-scripts/parse-formulas.sh
-      - name: Generate Alias
+      - name: Generate Aliases
         run: .ci-scripts/generate-aliases.sh
+      - name: Commit & Push changes
+        run: |
+          git config --global user.name 'QAware Homebrew Bot'
+          git config --global user.email 'qaware.homebrew.bot@qaware.de'
+          git add Aliases
+          git commit -m "chore: update Aliases"
+          git push
