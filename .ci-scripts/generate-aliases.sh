@@ -5,7 +5,7 @@ set -euo pipefail
 #set -x
 
 # Check if needed programms are installe
-yq version >/dev/null || {
+yq --version >/dev/null || {
     echo "yq needs to be installed"
     exit 1
 }

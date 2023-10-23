@@ -13,7 +13,7 @@ jobs:
       - name: Install packages
         run: |
           # https://github.com/marketplace/actions/yq-portable-yaml-processor
-          wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O yq
+          wget -q -O yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
           chmod +x yq
           sudo mv yq /usr/bin/yq
       - name: Parse Formula
