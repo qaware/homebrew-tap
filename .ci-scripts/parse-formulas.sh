@@ -43,7 +43,8 @@ for formulaFile in Formula/*.rb; do
 - major: '$fMajor'
   minor: '$fMinor'
   bugfix: '$fBugfix'
-  builtag: '$fBuildtag'
+  buildtag: '$fBuildtag'
+  filename: '$formulaFile'
 EOF
 done
 
