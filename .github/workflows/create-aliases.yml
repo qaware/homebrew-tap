@@ -5,7 +5,10 @@ on:
     branches:
       - main
     paths:
+      - .ci-scripts
+      - .github/workflows
       - Formula/*.rb
+      - README.md
 jobs:
   update-alises:
     runs-on: ubuntu-latest
