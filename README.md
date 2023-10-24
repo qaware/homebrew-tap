@@ -25,9 +25,6 @@ brew install qaware/tap/protocurl
 ## Content
 
 <!-- BEGIN TOC -->
-* foo
-* foo2
-* foo3
 <!-- END TOC -->
 
 ## Formulae maintainer
