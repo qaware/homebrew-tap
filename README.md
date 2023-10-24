@@ -22,5 +22,17 @@ brew install protocurl
 brew install qaware/tap/protocurl
 ```
 
-<!-- TODO: Add auto updating (CI) list here with supplied Formalae -->
-<!-- TODO: Add CI that creates Aliases to the latest versioned Formulae -->
+## Content
+
+<!-- BEGIN TOC -->
+<!-- END TOC -->
+
+## Formulae maintainer
+
+If you want to push your own `Formulae` these are the steps:
+
+* Get a `Deploy Token` for your repo/CI (can be requested by the maintainers of this tap-repo)
+
+## Maintainers
+
+* Alexander Eimer (@qa-alexander-eimer)
