@@ -4,12 +4,11 @@ on:
   push:
     branches:
       - main
-# TODO: Uncomment when CI development done
-#    paths:
-#      - .ci-scripts
-#      - .github/workflows
-#      - Formula/*.rb
-#      - README.md
+    paths:
+      - .ci-scripts
+      - .github/workflows
+      - Formula/*.rb
+      - README.md
 jobs:
   update-alises:
     runs-on: ubuntu-latest
