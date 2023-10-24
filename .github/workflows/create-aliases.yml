@@ -22,12 +22,22 @@ jobs:
           wget -q -O yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
           chmod +x yq
           sudo mv yq /usr/bin/yq
-      - name: Parse Formulas
+
+      - name: Parse Formulas 1
         run: .ci-scripts/parse-formulas.sh
+
+      - name: Enforce Formula Policies
+        run: .ci-scripts/enforce-formula-policies.sh
+
+      - name: Parse Formulas 2
+        run: .ci-scripts/parse-formulas.sh
+
       - name: Generate Aliases
         run: .ci-scripts/generate-aliases.sh
+
       - name: Update TOC
         run: .ci-scripts/update-toc.sh
+
       - name: Commit & Push changes
         run: |
           git config --global user.name 'QAware Homebrew Bot'

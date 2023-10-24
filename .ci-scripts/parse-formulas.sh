@@ -39,7 +39,7 @@ for formulaFile in Formula/*.rb; do
 
     echo -e "- $formula\t| Found values: '$fName' '$fMajor' '$fMinor' '$fBugfix' '$fBuildtag'"
 
-    cat <<EOF >> "$tmpDir/$fName.yaml"
+    cat <<EOF >>"$tmpDir/$fName.yaml"
 - major: '$fMajor'
   minor: '$fMinor'
   bugfix: '$fBugfix'
