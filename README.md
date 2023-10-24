@@ -30,6 +30,8 @@ brew install qaware/tap/protocurl
 
 ## Formulae maintainer
 
+_TL;DR Deploy only your `Formula/[foo]@[major].[minor].rb` files and enjoy the benefits of the CI!_
+
 If you want to push your own `Formulae` these are the steps:
 
 * Get a `Deploy Token` for your repo/CI (can be requested by the maintainers of this tap-repo)
