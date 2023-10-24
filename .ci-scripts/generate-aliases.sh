@@ -28,7 +28,7 @@ for formulaVersionsFile in "$tmpDir"/*.yaml; do
 
     # TODO: Set latest => $formulaName.rb
     # TODO: Set Majors => $formulaName@$major.rb
-    # TODO: Set Majors.Minors => $formulaName@$major.$minor.rb
+    # TODO: Remove Formulae with more than major.minor in the name
 done
 
 aliasesCountAfter=$( (ls -1 Aliases/*.rb 2>/dev/null || true) | wc -l | tr -d ' ')
