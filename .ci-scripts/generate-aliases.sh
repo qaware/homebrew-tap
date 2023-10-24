@@ -24,7 +24,8 @@ for formulaVersionsFile in "$tmpDir"/*.yaml; do
     formulaName=$(basename "${formulaVersionsFile%.yaml}")
     echo "- $formulaName ($(yq 'length' "$formulaVersionsFile") versions found)"
     echo "TODO: Do magic and create the Alias symlink files"
-    # ln -s foo bar
+    # ln -s "../Formula/$target" "$formulaName"
+    # ln -s "../Formula/$target" "${formulaName}@${formulaMajor}"
 
     # TODO: Set latest => $formulaName.rb
     # TODO: Set Majors => $formulaName@$major.rb
