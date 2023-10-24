@@ -33,6 +33,15 @@ brew install qaware/tap/protocurl
 If you want to push your own `Formulae` these are the steps:
 
 * Get a `Deploy Token` for your repo/CI (can be requested by the maintainers of this tap-repo)
+* Set up your CI to push the ruby files to `Formula`.
+  You can push either of these `Formulae`:  
+  `foo.rb`, `foo@1.rb`, `foo@1.2.rb`  
+  **Other formats (with bugfix version or with buildpostfix) will be removed by the CI.**  
+  This behaviour is accordingly to [brew Versions](https://docs.brew.sh/Versions).
+* The CI of `qaware/homebrew-tap` will create the `latest` (`Aliases/foo.rb`) symlink and the `major` (`Aliases/foo@1.rb`) symlink.
+  This behaviour provides an easy way to only push one `Formulae` and still have a full version selection available.  
+  If you want to manage these "high-level" versions on your own, the CI will not create aliases if a `Formulae` is present.
+  `Formulae` have precedence over `Aliases`.
 
 ## Maintainers
 
