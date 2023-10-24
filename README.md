@@ -36,4 +36,4 @@ If you want to push your own `Formulae` these are the steps:
 
 ## Maintainers
 
-* Alexander Eimer (@qa-alexander-eimer)
+* Alexander Eimer ([@qa-alexander-eimer](https://github.com/qa-alexander-eimer))
