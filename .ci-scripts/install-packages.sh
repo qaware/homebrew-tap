@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Enable debug - print commands
-set -x
+#set -x
 
 aptGetInstallPackages=(wget)
 
