@@ -26,7 +26,7 @@ if [[ "$runnerType" == "gitlab" ]]; then
   apt-get update
   apt-get -qy install "${aptGetInstallPackages[*]}"
 elif [[ "$runnerType" == "github" ]]; then
-  sudo echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
+  echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections
   sudo apt-get -q update
   sudo apt-get -qy install "${aptGetInstallPackages[*]}"
 fi
