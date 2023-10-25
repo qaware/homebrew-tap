@@ -8,7 +8,7 @@ function generateToc() {
   programNameList=()
 
   while read -r file; do
-    programName=$(cut -d@ -f1 <<<"$file")
+    programName=$(cut -d@ -f1 <<<"$file" | sed 's/.rb//')
     programNameList+=("$programName")
   done < <(find "Formula" -maxdepth 1 -type f -name '*.rb' -exec basename {} \; | sort)
 
