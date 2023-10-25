@@ -33,6 +33,7 @@ fi
 
 # Install yq
 # https://github.com/marketplace/actions/yq-portable-yaml-processor
+echo "Installing yq"
 wget -q -O yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
 chmod +x yq
 test "$runnerType" = "gitlab" && mv yq /usr/bin/yq
