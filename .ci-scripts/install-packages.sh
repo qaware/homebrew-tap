@@ -20,12 +20,13 @@ fi
 
 # Install needed packages
 echo "Installing packages with apt: ${aptGetInstallPackages[*]}"
-echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 # Install apt requirements
 if [[ "$runnerType" == "gitlab" ]]; then
+  echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
   apt-get update
   apt-get -qy install "${aptGetInstallPackages[*]}"
 elif [[ "$runnerType" == "github" ]]; then
+  sudo echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
   sudo apt-get -q update
   sudo apt-get -qy install "${aptGetInstallPackages[*]}"
 fi
@@ -36,4 +37,3 @@ wget -q -O yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_
 chmod +x yq
 test "$runnerType" = "gitlab" && mv yq /usr/bin/yq
 test "$runnerType" = "github" && sudo mv yq /usr/bin/yq
-
