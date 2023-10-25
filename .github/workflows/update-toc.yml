@@ -11,7 +11,7 @@ on:
       - Formula/*.rb
       - README.md
 jobs:
-  update-alises:
+  update-toc:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
