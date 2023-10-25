@@ -30,7 +30,7 @@ brew install qaware/tap/protocurl
 
 ## Formulae maintainer
 
-_TL;DR Deploy only your `Formula/[foo]@[major].[minor].rb` files and enjoy the benefits of the CI!_
+_TL;DR Deploy only your `Formula/[foo].rb` and `Formula/[foo]@[major].rb` files.
 
 If you want to push your own `Formulae` these are the steps:
 
@@ -38,12 +38,10 @@ If you want to push your own `Formulae` these are the steps:
 * Set up your CI to push the ruby files to `Formula`.
   You can push either of these `Formulae`:  
   `foo.rb`, `foo@1.rb`, `foo@1.2.rb`  
-  **Other formats (with bugfix version or with buildpostfix) will be removed by the CI.**  
+  **Other formats (with bugfix version or with buildpostfix) may be removed by the CI in the future.**  
   This behaviour is accordingly to [brew Versions](https://docs.brew.sh/Versions).
-* The CI of `qaware/homebrew-tap` will create the `latest` (`Aliases/foo.rb`) symlink and the `major` (`Aliases/foo@1.rb`) symlink.
-  This behaviour provides an easy way to only push one `Formulae` and still have a full version selection available.  
-  If you want to manage these "high-level" versions on your own, the CI will not create aliases if a `Formulae` is present.
-  `Formulae` have precedence over `Aliases`.
+* The CI of `qaware/homebrew-tap` will update the README.md TOC.
+* You can use the `Aliases` folder as you want, if you stay within the brew conventions.
 
 ## Maintainers
 
