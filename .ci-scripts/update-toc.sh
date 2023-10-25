@@ -9,7 +9,7 @@ function generateToc() {
 
   while read -r file; do
     # shellcheck disable=SC2001
-    programName=$(sed -E 's/(@.+)?\.rb//g' <<<"$file")
+    programName=$(cut -d@ -f1 <<<"$file")
     programNameList+=("$programName")
   done < <(find "Formula" -maxdepth 1 -type f -name '*.rb' -exec basename {} \; | sort)
 
