@@ -13,9 +13,9 @@ yq --version >/dev/null || {
 }
 
 echo "Remove over-specific versions:"
-for formulaVersionsFile in "$TAP_GEN_TMP_PATH"/*.yaml; do
+while read -r formulaVersionsFile; do
     fName=$(basename "${formulaVersionsFile%.yaml}")
-    echo "- $fName ($(yq 'length' "$formulaVersionsFile") versions found)"
+    echo "- $fName ($(yq 'length' "$formulaVersionsFile") versions)"
 
     # Remove over-specific formula
     while read -r fVersion; do
@@ -24,4 +24,4 @@ for formulaVersionsFile in "$TAP_GEN_TMP_PATH"/*.yaml; do
       echo "  - Removing $fFilename"
       rm -f "Formula/$fFilename"
     done < <(yq -e -oj -I0 '.[] | select(.bugfix != "" or .buildtag != "")' <"$formulaVersionsFile" 2>/dev/null)
-done
+done < <(find "$TAP_GEN_TMP_PATH" -maxdepth 1 -type f -name '*.yaml')

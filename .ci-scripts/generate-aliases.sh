@@ -40,7 +40,7 @@ echo "Delete symlinks in Aliases folder"
 rm -f Aliases/*.rb
 
 echo "Generating Aliases from provided config:"
-for formulaVersionsFile in "$TAP_GEN_TMP_PATH"/*.yaml; do
+while read -r formulaVersionsFile; do
     fName=$(basename "${formulaVersionsFile%.yaml}")
     echo "- $fName ($(yq 'length' "$formulaVersionsFile") versions found)"
 
@@ -100,7 +100,7 @@ for formulaVersionsFile in "$TAP_GEN_TMP_PATH"/*.yaml; do
         echo "    - Skipping $symlinkName for $symlinkTarget => Formula exists"
       fi
     done < <(yq -e -ot -I0 '[.[] | .major] | unique | sort | .[]' <"$formulaVersionsFile")
-done
+done < <(find "$TAP_GEN_TMP_PATH" -maxdepth 1 -type f -name '*.yaml')
 
 aliasesCountAfter=$( (ls -1 Aliases/*.rb 2>/dev/null || true) | wc -l | tr -d ' ')
 echo "Found $aliasesCountAfter aliases afterwards -- a change of $((aliasesCountAfter - aliasesCountBefore))"

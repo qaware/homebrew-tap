@@ -4,7 +4,7 @@ set -euo pipefail
 # Enable debug - print commands
 #set -x
 
-aptGetInstallPackages=(wget)
+aptGetInstallPackages=(git wget)
 
 # Detect environment
 if [[ -n "${GITLAB_CI:-}" ]]; then
@@ -19,16 +19,16 @@ else
 fi
 
 # Install needed packages
-echo "Installing packages with apt: ${aptGetInstallPackages[*]}"
+echo "Installing ${#aptGetInstallPackages[*]} packages with apt: ${aptGetInstallPackages[*]}"
 # Install apt requirements
 if [[ "$runnerType" == "gitlab" ]]; then
   echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
   apt-get update
-  apt-get -qy install "${aptGetInstallPackages[*]}"
+  apt-get -qy install "${aptGetInstallPackages[@]}"
 elif [[ "$runnerType" == "github" ]]; then
   echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections
   sudo apt-get -q update
-  sudo apt-get -qy install "${aptGetInstallPackages[*]}"
+  sudo apt-get -qy install "${aptGetInstallPackages[@]}"
 fi
 
 # Install yq

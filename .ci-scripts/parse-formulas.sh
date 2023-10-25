@@ -7,14 +7,14 @@ set -euo pipefail
 TAP_GEN_TMP_PATH=".parsed-formula"
 
 if [[ -d "$TAP_GEN_TMP_PATH" ]]; then
-    echo "$TAP_GEN_TMP_PATH already exists, deleting! => Should happen only locally..."
+    echo "$TAP_GEN_TMP_PATH already exists, deleting!"
     rm -rf "$TAP_GEN_TMP_PATH"
 fi
 
 mkdir "$TAP_GEN_TMP_PATH"
 
 echo "Sort Formula:"
-for formulaFile in Formula/*.rb; do
+while read -r formulaFile; do
     formulaFile=$(basename "$formulaFile")
 
     if [[ "$formulaFile" =~ ^\. ]]; then
@@ -46,10 +46,10 @@ for formulaFile in Formula/*.rb; do
   buildtag: '$fBuildtag'
   filename: '$formulaFile'
 EOF
-done
+done < <(find Formula -maxdepth 1 -type f -name '*.rb')
 
 echo "Config files wrote to $TAP_GEN_TMP_PATH:"
 (
     cd "$TAP_GEN_TMP_PATH"
-    ls -a1 ./*.yaml
+    ls -a1 ./*.yaml || echo "No config files written..."
 ) || true
