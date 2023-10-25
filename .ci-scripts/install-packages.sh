@@ -36,5 +36,8 @@ fi
 echo "Installing yq"
 wget -q -O yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
 chmod +x yq
-test "$runnerType" = "gitlab" && mv yq /usr/bin/yq
-test "$runnerType" = "github" && sudo mv yq /usr/bin/yq
+if [[ "$runnerType" == "gitlab" ]]; then
+  mv yq /usr/bin/yq
+elif [[ "$runnerType" == "github" ]]; then
+  sudo mv yq /usr/bin/yq
+fi
