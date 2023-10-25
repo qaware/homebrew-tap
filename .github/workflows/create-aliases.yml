@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - .ci-scripts/*
+      - .shellcheckrc
       - .github/workflows/*
       - Formula/*.rb
       - README.md
