@@ -4,6 +4,8 @@ set -euo pipefail
 # Enable debug - print commands
 #set -x
 
+TAP_GEN_TMP_PATH=".parsed-formula"
+
 # Check if needed programms are installed
 yq --version >/dev/null || {
     echo "yq needs to be installed"

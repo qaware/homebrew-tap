@@ -4,6 +4,8 @@ set -euo pipefail
 # Enable debug - print commands
 #set -x
 
+TAP_GEN_TMP_PATH=".parsed-formula"
+
 if [[ -d "$TAP_GEN_TMP_PATH" ]]; then
     echo "$TAP_GEN_TMP_PATH already exists, deleting! => Should happen only locally..."
     rm -rf "$TAP_GEN_TMP_PATH"
