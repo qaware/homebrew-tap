@@ -10,10 +10,8 @@ yq --version >/dev/null || {
     exit 1
 }
 
-tmpDir="/tmp/parsed-formula"
-
 echo "Remove over-specific versions:"
-for formulaVersionsFile in "$tmpDir"/*.yaml; do
+for formulaVersionsFile in "$TAP_GEN_TMP_PATH"/*.yaml; do
     fName=$(basename "${formulaVersionsFile%.yaml}")
     echo "- $fName ($(yq 'length' "$formulaVersionsFile") versions found)"
 

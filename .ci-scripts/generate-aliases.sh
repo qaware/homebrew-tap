@@ -30,8 +30,6 @@ yq --version >/dev/null || {
     exit 1
 }
 
-tmpDir="/tmp/parsed-formula"
-
 aliasesCountBefore=$( (ls -1 Aliases/*.rb 2>/dev/null || true) | wc -l | tr -d ' ')
 echo "Found $aliasesCountBefore aliases beforehand"
 
@@ -40,7 +38,7 @@ echo "Delete symlinks in Aliases folder"
 rm -f Aliases/*.rb
 
 echo "Generating Aliases from provided config:"
-for formulaVersionsFile in "$tmpDir"/*.yaml; do
+for formulaVersionsFile in "$TAP_GEN_TMP_PATH"/*.yaml; do
     fName=$(basename "${formulaVersionsFile%.yaml}")
     echo "- $fName ($(yq 'length' "$formulaVersionsFile") versions found)"
 

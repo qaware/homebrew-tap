@@ -12,6 +12,8 @@ on:
 jobs:
   update-alises:
     runs-on: ubuntu-latest
+    env:
+      TAP_GEN_TMP_PATH: /tmp/parsed-formula
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4

@@ -9,7 +9,7 @@ function generateToc() {
     formulaName=${file//.yaml/}
     1>&2 echo "  - $formulaName"
     printf -- "* %s\n" "$formulaName"
-  done < <(find /tmp/parsed-formula -maxdepth 1 -type f -regex '.*\.yaml' -exec basename {} \; | sort)
+  done < <(find "$TAP_GEN_TMP_PATH" -maxdepth 1 -type f -regex '.*\.yaml' -exec basename {} \; | sort)
 }
 
 echo "Generating TOC in README.md"

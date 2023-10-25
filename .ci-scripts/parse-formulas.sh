@@ -4,14 +4,12 @@ set -euo pipefail
 # Enable debug - print commands
 #set -x
 
-tmpDir="/tmp/parsed-formula"
-
-if [[ -d "$tmpDir" ]]; then
-    echo "$tmpDir already exists, deleting! => Should happen only locally..."
-    rm -rf "$tmpDir"
+if [[ -d "$TAP_GEN_TMP_PATH" ]]; then
+    echo "$TAP_GEN_TMP_PATH already exists, deleting! => Should happen only locally..."
+    rm -rf "$TAP_GEN_TMP_PATH"
 fi
 
-mkdir "$tmpDir"
+mkdir "$TAP_GEN_TMP_PATH"
 
 echo "Sort Formula:"
 for formulaFile in Formula/*.rb; do
@@ -39,7 +37,7 @@ for formulaFile in Formula/*.rb; do
 
     echo -e "- $formula\t| Found values: '$fName' '$fMajor' '$fMinor' '$fBugfix' '$fBuildtag'"
 
-    cat <<EOF >>"$tmpDir/$fName.yaml"
+    cat <<EOF >>"$TAP_GEN_TMP_PATH/$fName.yaml"
 - major: '$fMajor'
   minor: '$fMinor'
   bugfix: '$fBugfix'
@@ -48,8 +46,8 @@ for formulaFile in Formula/*.rb; do
 EOF
 done
 
-echo "Config files wrote to $tmpDir:"
+echo "Config files wrote to $TAP_GEN_TMP_PATH:"
 (
-    cd "$tmpDir"
+    cd "$TAP_GEN_TMP_PATH"
     ls -a1 ./*.yaml
 ) || true
