@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - .ci-scripts
-      - .github/workflows
+      - .ci-scripts/
+      - .github/workflows/
       - Formula/*.rb
       - README.md
 jobs:
