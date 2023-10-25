@@ -35,4 +35,9 @@ jobs:
         run: .ci-scripts/update-toc.sh
 
       - name: Commit & Push changes
+        env:
+          GIT_AUTHOR_NAME: QAware Homebrew Bot
+          GIT_AUTHOR_EMAIL: qaware.homebrew.bot@qaware.de
+          GIT_COMMITTER_NAME: QAware Homebrew Bot
+          GIT_COMMITTER_EMAIL: qaware.homebrew.bot@qaware.de
         run: .ci-scripts/commit-push.sh

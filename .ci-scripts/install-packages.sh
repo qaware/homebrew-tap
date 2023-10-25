@@ -4,19 +4,11 @@ set -euo pipefail
 # Enable debug - print commands
 #set -x
 
-aptGetInstallPackages=(git wget)
+SCRIPT_PATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
+# shellcheck source-path=.ci-scripts
+source "$SCRIPT_PATH/env.sh"
 
-# Detect environment
-if [[ -n "${GITLAB_CI:-}" ]]; then
-  echo "Detected GitLab"
-  runnerType="gitlab"
-elif [[ -n "${GITHUB_REPOSITORY:-}" ]]; then
-  echo "Detected GitHub"
-  runnerType="github"
-else
-  echo "No runnerType/platform detected"
-  exit 1
-fi
+aptGetInstallPackages=(git wget)
 
 # Install needed packages
 echo "Installing ${#aptGetInstallPackages[*]} packages with apt: ${aptGetInstallPackages[*]}"
