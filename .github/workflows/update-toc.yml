@@ -1,5 +1,5 @@
-name: Update brew Aliases
-run-name: Updating brew Aliases 🚀
+name: Update TOC
+run-name: Update TOC 🚀
 on:
   push:
     branches:
@@ -16,21 +16,6 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
-
-      - name: Install packages
-        run: .ci-scripts/install-packages.sh
-
-      - name: Parse Formulas 1
-        run: .ci-scripts/parse-formulas.sh
-
-      - name: Enforce Formula Policies
-        run: .ci-scripts/enforce-formula-policies.sh
-
-      - name: Parse Formulas 2
-        run: .ci-scripts/parse-formulas.sh
-
-      - name: Generate Aliases
-        run: .ci-scripts/generate-aliases.sh
 
       - name: Update TOC
         run: .ci-scripts/update-toc.sh
