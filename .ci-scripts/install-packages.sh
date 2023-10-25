@@ -20,6 +20,7 @@ fi
 
 # Install needed packages
 echo "Installing packages with apt: ${aptGetInstallPackages[*]}"
+echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 # Install apt requirements
 if [[ "$runnerType" == "gitlab" ]]; then
   apt-get update
