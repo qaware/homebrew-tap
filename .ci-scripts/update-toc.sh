@@ -4,6 +4,8 @@ set -euo pipefail
 # Enable debug - print commands
 #set -x
 
+TAP_GEN_TMP_PATH=".parsed-formula"
+
 function generateToc() {
   while read -r file; do
     formulaName=${file//.yaml/}
