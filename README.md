@@ -30,7 +30,7 @@ brew install qaware/tap/protocurl
 
 ## Formulae maintainer
 
-_TL;DR Deploy only your `Formula/[foo].rb` and `Formula/[foo]@[major].rb` files.
+_TL;DR Deploy only your `Formula/[foo].rb` and `Formula/[foo]@[major].rb` files._
 
 If you want to push your own `Formulae` these are the steps:
 
