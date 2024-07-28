@@ -24,9 +24,5 @@ touch Formula/foo10@1.1.rb
 Run locally with:
 
 ```bash
-./.ci-scripts/parse-formulas.sh
-./.ci-scripts/enforce-formula-policies.sh
-./.ci-scripts/parse-formulas.sh
-./.ci-scripts/generate-aliases.sh
 ./.ci-scripts/update-toc.sh
 ```

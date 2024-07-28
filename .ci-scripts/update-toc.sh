@@ -12,6 +12,10 @@ function generateToc() {
     programNameList+=("$programName")
   done < <(find "Formula" -maxdepth 1 -type f -name '*.rb' -exec basename {} \; | sort)
 
+  if [[ ${#programNameList[@]} == "0" ]]; then
+    programNameList=("_n/a (no formula found)_")
+  fi
+
   printf "* %s\n" "${programNameList[@]}" | sort -u
 }
 
