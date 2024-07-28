@@ -4,8 +4,8 @@ set -euo pipefail
 # Enable debug - print commands
 #set -x
 
-git add Aliases README.md
-git commit --quiet -m "chore: update Aliases" || {
+git add README.md
+git commit --quiet -m "chore: update TOC" || {
   echo "Nothing to commit or commit failed, will exit now"
   exit 0
 }
