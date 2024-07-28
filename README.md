@@ -26,3 +26,23 @@ brew install qaware/tap/protocurl
 
 <!-- BEGIN TOC -->
 * _n/a (no formula found)_
+<!-- END TOC -->
+
+## Formulae maintainer
+
+_TL;DR Deploy only your `Formula/[foo].rb` and `Formula/[foo]@[major].rb` files._
+
+If you want to push your own `Formulae` these are the steps:
+
+* Get a `Deploy Token` for your repo/CI (can be requested by the maintainers of this tap-repo)
+* Set up your CI to push the ruby files to `Formula`.
+  You can push either of these `Formulae`:  
+  `foo.rb`, `foo@1.rb`, `foo@1.2.rb`  
+  **Other formats (with bugfix version or with buildpostfix) may be removed by the CI in the future.**  
+  This behaviour is accordingly to [brew Versions](https://docs.brew.sh/Versions).
+* The CI of `qaware/homebrew-tap` will update the README.md TOC.
+* You can use the `Aliases` folder as you want, if you stay within the brew conventions.
+
+## Maintainers
+
+* Alexander Eimer ([@aeimer](https://github.com/aeimer))
