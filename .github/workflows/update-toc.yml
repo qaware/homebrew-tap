@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Update TOC
-        run: .ci-scripts/update-toc.sh
+        uses: qaware/update-brew-tap-toc-action@main
 
       - name: Commit & Push changes
         env:
