@@ -46,3 +46,9 @@ If you want to push your own `Formulae` these are the steps:
 ## Maintainers
 
 * Alexander Eimer ([@aeimer](https://github.com/aeimer))
+
+## Support
+
+This project is made possible with the support of
+
+[![QAware GmbH logo](https://blog.qaware.de/images/icons/logo_qaware.svg)](https://qaware.de)
