@@ -25,7 +25,10 @@ brew install qaware/tap/protocurl
 ## Content
 
 <!-- BEGIN TOC -->
-* _n/a (no formula found)_
+* Casks
+  * _n/a (no casks found)_
+* Formulae
+  * _n/a (no formulae found)_
 <!-- END TOC -->
 
 ## Formulae maintainer
